@@ -1,13 +1,22 @@
 import type { ReactNode } from "react"
+import NavBarComponent from "../components/navBarComponent"
 
 type Props = {
     children?: ReactNode
 }
 
-export default function MainLayout({ children }:Props) {
+export default function MainLayout({ children }: Props) {
     return (
-        <main>
-            { children }
-        </main>
+        <div>
+            <head>
+                <NavBarComponent></NavBarComponent>
+            </head>
+            <main>
+                {children}
+            </main>
+            <footer>
+                <p> © { new Date().getFullYear() } Historico Precios API </p>
+            </footer>
+        </div>
     )
 }
