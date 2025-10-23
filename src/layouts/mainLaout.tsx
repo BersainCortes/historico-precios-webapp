@@ -8,9 +8,9 @@ type Props = {
 export default function MainLayout({ children }: Props) {
     return (
         <div>
-            <head>
+            <header>
                 <NavBarComponent></NavBarComponent>
-            </head>
+            </header>
             <main>
                 {children}
             </main>
