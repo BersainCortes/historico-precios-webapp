@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import base_url from "../api/axios";
 import MainLayout from "../layouts/mainLaout";
+import { Link } from "react-router-dom";
 
 type Producto = {
     id: number;
@@ -27,11 +28,32 @@ export default function Products() {
 
     return (
         <MainLayout>
-            <section>
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
                 {productos.map((producto) => (
-                    <li key={producto.id}>
-                        {producto.id} - {producto.nombre} - {producto.unidad}
-                    </li>
+                    <div
+                        key={producto.id}
+                        className="bg-slate-800 rounded-2xl p-5 shadow-md shadow-slate-900/40 hover:shadow-lg hover:shadow-slate-900/60 transition-all duration-300 hover:-translate-y-1"
+                    >
+                        <div className="flex items-center justify-between mb-3">
+                            <small className="px-3 py-1 bg-slate-700/70 rounded-full text-slate-300 text-sm">
+                                #{producto.id}
+                            </small>
+                            <small className="px-3 py-1 bg-slate-700/70 rounded-full text-slate-300 text-sm">
+                                {producto.unidad}
+                            </small>
+                        </div>
+
+                        <h4 className="text-lg font-semibold text-slate-100 mb-4 line-clamp-2">
+                            {producto.nombre}
+                        </h4>
+
+                        <Link
+                            to={`/producto/${producto.id}`}
+                            className="inline-block w-full text-center bg-slate-700 py-2 rounded-xl font-medium text-slate-200 hover:bg-indigo-600 transition-all duration-300"
+                        >
+                            Ver más
+                        </Link>
+                    </div>
                 ))}
             </section>
         </MainLayout>
