@@ -33,7 +33,7 @@ export default function ProductCardComponent({ id, nombre, unidad, icon }: Produ
             </div>
 
             <Link
-                to={`/producto/${id}`}
+                to={`/productos/${id}`}
                 className="inline-block w-full text-center bg-slate-700 py-2 rounded-xl font-medium text-slate-200 hover:bg-indigo-600 transition-all duration-300"
             >
                 Ver más
